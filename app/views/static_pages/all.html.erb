@@ -16,12 +16,15 @@
   </span>
 
   <span class="comments">
-       <%= render 'comments/comment', micropost: micropost %>
+    <% if current_user?(micropost.user) %>
+      <%= render 'comments/comment', micropost: micropost %>
+    <% end %>
   </span>
-  <% if logged_in? %>
-    <span class="form_comments">
-        <%= render 'shared/comment_form', micropost: micropost %>
-    </span>
-  <% end %>
+  <span class="form_comments">
+    <% if current_user?(micropost.user) %>
+      <%= render 'shared/comment_form', micropost: micropost %>
+    <% end %>
+  </span>
+
 </li>
 

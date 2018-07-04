@@ -1,0 +1,2 @@
+$("#micropost-<%= @comment.micropost_id %> .comments").html("<%= escape_javascript(render('comments/comment', micropost: @comment.micropost)) %>");
+$("#micropost-<%= @comment.micropost_id %> [name='comment[content]']").val('');

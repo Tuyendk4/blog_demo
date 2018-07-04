@@ -1,0 +1,18 @@
+<ul>
+  <% micropost.comments.each do |comment| %>
+    <li>
+      <%= link_to gravatar_for(comment.user, size: 40), micropost.user %>
+      <span class = name>
+        <b><%= comment.user.name %></b>
+      </span> <%= comment.content %></br>
+      <span class="timestamp">
+          Posted <%= time_ago_in_words(micropost.created_at) %> ago.
+          <% if current_user?(comment.user) %>
+            <%= link_to "edit", edit_comment_path(comment) %>
+            <%= link_to "delete", comment, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+          <% end %>
+      </span>
+  <% end %>
+  </li>
+</ul>
