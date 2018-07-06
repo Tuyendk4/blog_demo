@@ -36,9 +36,10 @@ class CommentsController < ApplicationController
  end
 
  def update
-  if @comment.update comment_params
+  @user = @micropost.user
+  if @comment.update_attributes(comment_params)
    flash[:notice] = "You updated your comment"
-   redirect_to root_path
+   redirect_to root_url
   else
    flash[:alert] = "Failed to update"
    redirect_to 'edit'
@@ -55,6 +56,7 @@ class CommentsController < ApplicationController
 
   def find_comment
    @comment = Comment.find(params[:id])
+   @micropost = Micropost.find(params[:id])
   end
 
   def comment_params
