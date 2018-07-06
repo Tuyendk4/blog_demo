@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
  end
 
  def create
+<<<<<<< HEAD
   # @micropost = Micropost.find(params[:id])
   @comment = Comment.new(comment_params)
   # @comment = current_user.comments.build(comment_params)
@@ -23,7 +24,6 @@ class CommentsController < ApplicationController
       end
       format.js
     end
-
   else
    flash[:alert] = "failed"
    redirect_to root_path
@@ -61,5 +61,4 @@ class CommentsController < ApplicationController
   def comment_params
    params.require(:comment).permit(:content, :micropost_id, :user_id)
   end
-
 end
