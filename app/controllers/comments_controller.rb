@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
  end
 
  def create
-<<<<<<< HEAD
   # @micropost = Micropost.find(params[:id])
   @comment = Comment.new(comment_params)
   # @comment = current_user.comments.build(comment_params)
